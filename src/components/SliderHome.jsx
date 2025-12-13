@@ -5,8 +5,13 @@ import { ShoppingBag, ArrowRight } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const SliderHome = () => {
+
+  const { t } = useTranslation();
+  const navigate = useNavigate();
   const swiperRef = useRef(null);
 
   const slides = [
@@ -16,7 +21,7 @@ const SliderHome = () => {
       subtitle: "Fresh Styles for 2025",
       image:
         "https://images.unsplash.com/photo-1599012307530-d163bd04ecab?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      cta: "Shop Now",
+      cta: t("shopNow"),
     },
     {
       id: 2,
@@ -24,7 +29,7 @@ const SliderHome = () => {
       subtitle: "Comfort Meets Performance",
       image:
         "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1000&auto=format&fit=crop&q=80",
-      cta: "Discover",
+      cta: t("discover"),
     },
     {
       id: 3,
@@ -32,7 +37,7 @@ const SliderHome = () => {
       subtitle: "Everyday must-haves",
       image:
         "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1000&auto=format&fit=crop&q=80",
-      cta: "Explore",
+      cta: t("explore"),
     },
   ];
 
@@ -68,7 +73,7 @@ const SliderHome = () => {
                 <p className="text-sm md:text-base opacity-90 mb-4 drop-shadow">
                   {slide.subtitle}
                 </p>
-                <button className="flex items-center gap-2 bg-white text-gray-900 px-5 py-2.5 rounded-xl text-sm font-semibold hover:scale-105 transition">
+                <button onClick={() => navigate('/collection')} className="flex items-center gap-2 bg-white text-gray-900 px-5 py-2.5 rounded-xl text-sm font-semibold hover:scale-105 transition">
                   <ShoppingBag size={18} />
                   {slide.cta}
                   <ArrowRight size={18} />
