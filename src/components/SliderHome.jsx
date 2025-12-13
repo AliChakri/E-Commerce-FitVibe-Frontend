@@ -17,24 +17,24 @@ const SliderHome = () => {
   const slides = [
     {
       id: 1,
-      title: "Summer Collection",
-      subtitle: "Fresh Styles for 2025",
+      title: t("summerCollection"),
+      subtitle: t("freshStylesFor2025"),
       image:
         "https://images.unsplash.com/photo-1599012307530-d163bd04ecab?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      cta: t("shopNow"),
+      cta: t("shop_now"),
     },
     {
       id: 2,
-      title: "Trending Activewear",
-      subtitle: "Comfort Meets Performance",
+      title: t("trendingActivewear"),
+      subtitle: t("comfortMeetsPerformance"),
       image:
         "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1000&auto=format&fit=crop&q=80",
       cta: t("discover"),
     },
     {
       id: 3,
-      title: "Classic Essentials",
-      subtitle: "Everyday must-haves",
+      title: t("classicEssentials"),
+      subtitle: t("everydayMustHaves"),
       image:
         "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1000&auto=format&fit=crop&q=80",
       cta: t("explore"),
