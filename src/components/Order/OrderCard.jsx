@@ -154,7 +154,7 @@ const OrderCard = ({ order }) => {
           <Package className="w-6 h-6 text-slate-600 dark:text-gray-300" />
         </div>
         <div>
-          <h2 className="flex items-center justify-between text-lg font-semibold text-slate-800 dark:text-gray-100">
+          <h2 className="flex items-center justify-between text-xs md:text-lg font-semibold text-slate-800 dark:text-gray-100">
             <span> {t("order")}</span> #{order._id}
           </h2>
           <p className="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">

@@ -109,7 +109,8 @@ const PersonalOrders = () => {
         </div>
 
         {/* Search bar */}
-        <div className="relative w-96">
+        <div className="relative w-full min-w-0 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+
           <Search
             className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500"
             size={20}
@@ -120,12 +121,13 @@ const PersonalOrders = () => {
             type="search"
             placeholder={t('searchOrdersProducts')}
             className="w-full bg-white dark:bg-gray-800 text-slate-900 dark:text-white 
-                       py-2.5 pl-10 pr-4 border-2 rounded-xl 
-                       border-gray-200 dark:border-gray-700
-                       placeholder:text-slate-400 dark:placeholder:text-slate-500
-                       focus:border-blue-500 focus:ring-1 focus:ring-blue-300 focus:outline-none"
+                      py-2.5 pl-10 pr-4 border-2 rounded-xl 
+                      border-gray-200 dark:border-gray-700
+                      placeholder:text-slate-400 dark:placeholder:text-slate-500
+                      focus:border-blue-500 focus:ring-1 focus:ring-blue-300 focus:outline-none"
           />
         </div>
+
       </div>
 
 {/* FILTER + SORT BAR */}
