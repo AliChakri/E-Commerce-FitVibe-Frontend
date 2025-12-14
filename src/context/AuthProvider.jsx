@@ -1,11 +1,8 @@
-// context/AuthProvider.jsx
-
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthApi from "./apiAuth";
-import { toast } from "react-toastify";
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -13,77 +10,72 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    let mounted = true;
+
     const checkAuth = async () => {
       try {
-        console.log('🔍 Checking authentication...');
-        const res = await AuthApi.get("/me", { withCredentials: true });
-        
-        if (res.data.success && res.data.user) {
-          console.log('✅ User authenticated:', res.data.user.email);
+        const res = await AuthApi.get("/me");
+
+        if (mounted && res?.data?.success && res.data.user) {
           setUser(res.data.user);
-        } else {
-          console.log('❌ No user data in response');
+        } else if (mounted) {
           setUser(null);
         }
-      } catch (error) {
-        console.log('❌ Auth check failed:', error.response?.data?.code);
-        
-        // The interceptor will handle token refresh automatically
-        // If it fails, user will be redirected to login
-        setUser(null);
+      } catch {
+        if (mounted) setUser(null);
       } finally {
-        setLoading(false);
+        if (mounted) setLoading(false);
       }
     };
 
     checkAuth();
+
+    const safetyTimeout = setTimeout(() => {
+      if (mounted) setLoading(false);
+    }, 5000);
+
+    return () => {
+      mounted = false;
+      clearTimeout(safetyTimeout);
+    };
   }, []);
 
-  const isAdmin = user?.role === 'admin';
-  const isVerified = user?.isVerified;
-
   const login = (userData) => {
-    console.log('✅ User logged in:', userData.email);
     setUser(userData);
   };
 
   const logout = async () => {
     try {
-      await AuthApi.post("/logout", {}, { withCredentials: true });
+      await AuthApi.post("/logout");
+    } finally {
       setUser(null);
-      toast.success("Logged out successfully");
-      navigate('/login');
-    } catch (error) {
-      console.error('Logout error:', error);
-      setUser(null);
-      navigate('/login');
+      navigate("/login");
     }
   };
 
   const updateUser = (updatedData) => {
-    setUser(prev => ({ ...prev, ...updatedData }));
+    setUser((prev) => ({ ...prev, ...updatedData }));
   };
 
   return (
-    <AuthContext.Provider value={{
-      user,
-      setUser,
-      loading,
-      isAdmin,
-      isVerified,
-      login,
-      logout,
-      updateUser
-    }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        loading,
+        isAdmin: user?.role === "admin",
+        isVerified: user?.isVerified,
+        login,
+        logout,
+        updateUser,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 };
 
 export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within AuthProvider');
-  }
-  return context;
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error("useAuth must be used within AuthProvider");
+  return ctx;
 };
