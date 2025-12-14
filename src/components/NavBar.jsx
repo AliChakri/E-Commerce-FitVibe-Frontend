@@ -233,7 +233,7 @@ function NavBar() {
                   >
                     {user?.avatar ? (
                       <div className="w-7 h-7 sm:w-9 sm:h-9 p-0.5 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <img className='w-full h-full rounded-full object-cover' src={user.avatar} alt={user.firstName || user.name} />
+                        <img className='w-full h-full rounded-full object-cover' src={user.avatar || 'https://api.dicebear.com/7.x/avataaars/svg?seed=User'} alt={user.firstName || user.name} />
                       </div>
                     ) : (
                       <div className="w-7 h-7 sm:w-9 sm:h-9 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center flex-shrink-0">

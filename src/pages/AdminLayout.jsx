@@ -416,7 +416,7 @@ const AdminLayout = () => {
                       <div className="w-8 h-8 p-0.5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                         <img 
                           className="w-full h-full rounded-full object-cover" 
-                          src={user.avatar} 
+                          src={user.avatar || 'https://api.dicebear.com/7.x/avataaars/svg?seed=User'} 
                           alt={user.firstName || user.name} 
                         />
                       </div>
