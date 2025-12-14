@@ -61,6 +61,7 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         loading,
         isAdmin: user?.role === "admin",
         isVerified: user?.isVerified,
