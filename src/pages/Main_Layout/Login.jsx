@@ -18,7 +18,7 @@ import { useAuth } from '../../context/AuthProvider';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { setUser } = useAuth();
+  const { setUser, login } = useAuth();
 
   const [form, setForm] = useState({ 
     email: "", 
@@ -37,78 +37,76 @@ const Login = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setErrors({});
-    setLoading(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setErrors({});
+  setLoading(true);
 
-    try {
-      const res = await AuthApi.post("/login", form, {
-        withCredentials: true,
-        headers: { "Content-Type": "application/json" },
-      });
+  try {
+    const res = await AuthApi.post("/login", form, {
+      withCredentials: true,
+      headers: { "Content-Type": "application/json" },
+    });
 
-      if (res.data.success) {
-        setUser(res.data.user);
-        
-        // Show personalized welcome message
-        const userName = res.data.user.firstName || res.data.user.email;
-        const welcomeMsg = res.data.user.role === "admin" 
-          ? "Welcome back, Admin! 👑" 
-          : `Welcome back, ${userName}! 🎉`;
-        
-        toast.success(welcomeMsg);
+    if (res.data.success) {
+      login(res.data.user);
 
-        // Navigate based on role
-        const destination = res.data.user.role === "admin" ? "/admin-dash" : "/home";
-        navigate(destination);
-      }
-    } catch (err) {
-      const res = err.response?.data;
-      console.error('Login error:', err);
+      const userName = res.data.user.firstName || res.data.user.email;
+      const welcomeMsg =
+        res.data.user.role === "admin"
+          ? "Welcome back, Admin!"
+          : `Welcome back, ${userName}!`;
 
-      // Handle different error types
-      if (res?.errors) {
-        // Backend validation errors
-        const backendErrors = {};
-        Object.keys(res.errors).forEach(key => {
-          backendErrors[key] = res.errors[key];
-        });
-        setErrors(backendErrors);
-        toast.error(Object.values(res.errors)[0]);
-      } else if (res?.message) {
-        // Handle specific error messages from backend
-        const errorMsg = res.message;
+      toast.success(welcomeMsg);
 
-        // Check for specific error types
-        if (errorMsg.includes('locked') || errorMsg.includes('too many')) {
-          toast.error(errorMsg, { autoClose: 5000 });
-          setErrors({ general: errorMsg });
-        } else if (errorMsg.includes('banned')) {
-          toast.error(errorMsg, { autoClose: false });
-          setErrors({ general: errorMsg });
-        } else if (errorMsg.includes('verify')) {
-          toast.error('Please verify your email before logging in. Check your inbox!');
-          setErrors({ general: 'Email not verified. Please check your inbox.' });
-        } else if (errorMsg.includes('Invalid') || errorMsg.includes('credentials')) {
-          toast.error('Invalid email or password');
-          setErrors({ 
-            email: 'Invalid email or password',
-            password: 'Invalid email or password'
-          });
-        } else {
-          toast.error(errorMsg);
-          setErrors({ general: errorMsg });
-        }
-      } else {
-        // Generic error
-        toast.error('Login failed. Please try again.');
-        setErrors({ general: 'An unexpected error occurred. Please try again.' });
-      }
-    } finally {
-      setLoading(false);
+      const destination =
+        res.data.user.role === "admin" ? "/admin-dash" : "/home";
+      navigate(destination);
     }
-  };
+  } catch (err) {
+    const res = err.response?.data;
+
+    if (res?.errors) {
+      const backendErrors = {};
+      Object.keys(res.errors).forEach((key) => {
+        backendErrors[key] = res.errors[key];
+      });
+      setErrors(backendErrors);
+      toast.error(Object.values(res.errors)[0]);
+    } else if (res?.message) {
+      const errorMsg = res.message;
+
+      if (errorMsg.includes("locked") || errorMsg.includes("too many")) {
+        toast.error(errorMsg, { autoClose: 5000 });
+        setErrors({ general: errorMsg });
+      } else if (errorMsg.includes("banned")) {
+        toast.error(errorMsg, { autoClose: false });
+        setErrors({ general: errorMsg });
+      } else if (errorMsg.includes("verify")) {
+        toast.error("Please verify your email before logging in.");
+        setErrors({ general: "Email not verified." });
+      } else if (
+        errorMsg.includes("Invalid") ||
+        errorMsg.includes("credentials")
+      ) {
+        toast.error("Invalid email or password");
+        setErrors({
+          email: "Invalid email or password",
+          password: "Invalid email or password",
+        });
+      } else {
+        toast.error(errorMsg);
+        setErrors({ general: errorMsg });
+      }
+    } else {
+      toast.error("Login failed. Please try again.");
+      setErrors({ general: "An unexpected error occurred." });
+    }
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className='min-h-screen flex flex-col items-center justify-center px-4 py-8 bg-gradient-to-br from-blue-50 via-white to-purple-50'>
