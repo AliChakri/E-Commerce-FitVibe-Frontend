@@ -202,6 +202,14 @@ function NavBar() {
                 <ThemeToggle />
               </div>
 
+              <div className="hidden xs:block">
+                <ThemeToggle />
+              </div>
+
+              <div className="hidden xs:block">
+                <LanguageSwitcher />
+              </div>
+
               {/* Search Icon */}
               <div className='relative search-menu'>
                 <button
