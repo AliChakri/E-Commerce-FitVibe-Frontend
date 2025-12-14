@@ -101,7 +101,7 @@ const Home = () => {
         </section>
 
         {/* Latest Products Grid */}
-        <section className="max-w-7xl mx-auto px-6 py-16">
+        <section className="max-w-7xl mx-auto px-6 py-16 mt-12 md:mt-0">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{t("latest_products")}</h2>
             <a href="/collection" className="text-blue-600 dark:text-blue-400 hover:underline font-medium flex items-center gap-1">
