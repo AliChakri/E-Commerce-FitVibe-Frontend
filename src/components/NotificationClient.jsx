@@ -55,6 +55,7 @@ const NotificationClient = ({ userId }) => {
   }, []);
 
   // Initialize socket connection
+  const SOCKET_URL = import.meta.env.VITE_API_URL;
   const initializeSocket = useCallback(() => {
     if (!cleanUserId) return;
 
@@ -63,9 +64,9 @@ const NotificationClient = ({ userId }) => {
       socketRef.current.disconnect();
     }
 
-    socketRef.current = io("http://localhost:5000", {
+    socketRef.current = io(SOCKET_URL, {
       withCredentials: true,
-      transports: ["websocket"],
+      transports: ["websocket", "polling"],
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
@@ -104,7 +105,7 @@ const NotificationClient = ({ userId }) => {
     });
 
     return socket;
-  }, [cleanUserId]);
+  }, [cleanUserId, SOCKET_URL]);
 
   // Fetch existing notifications
   const fetchNotifications = useCallback(async () => {
@@ -119,7 +120,7 @@ const NotificationClient = ({ userId }) => {
       
       // console.log("📡 Fetching notifications for userId:", cleanUserId);
       
-      const data = await apiCall(`http://localhost:5000/api/notification/user/${cleanUserId}`);
+      const data = await apiCall(`${SOCKET_URL}/api/notification/user/${cleanUserId}`);
       
       // console.log("✅ Notifications fetched:", data);
       
@@ -138,7 +139,7 @@ const NotificationClient = ({ userId }) => {
         setLoading(false);
       }
     }
-  }, [cleanUserId, apiCall]);
+  }, [cleanUserId, SOCKET_URL,apiCall]);
 
   // Initialize everything when userId changes
   useEffect(() => {
@@ -162,7 +163,7 @@ const NotificationClient = ({ userId }) => {
         socket.disconnect();
       }
     };
-  }, [cleanUserId, initializeSocket, fetchNotifications]);
+  }, [cleanUserId, SOCKET_URL,initializeSocket, fetchNotifications]);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -181,7 +182,7 @@ const NotificationClient = ({ userId }) => {
     try {
       await Promise.all(
         notificationsToMark.map((n) =>
-          apiCall(`http://localhost:5000/api/notification/${n._id}/read`, {
+          apiCall(`${SOCKET_URL}/api/notification/${n._id}/read`, {
             method: 'PATCH'
           })
         )
@@ -199,7 +200,7 @@ const NotificationClient = ({ userId }) => {
     } catch (err) {
       console.error("❌ Error marking notifications as read:", err);
     }
-  }, [apiCall]);
+  }, [SOCKET_URL, apiCall]);
 
   // Toggle notification dropdown
   const handleToggle = useCallback(() => {
@@ -215,7 +216,7 @@ const NotificationClient = ({ userId }) => {
 
       return willOpen;
     });
-  }, [notifications, markNotificationsAsRead]);
+  }, [notifications, SOCKET_URL,markNotificationsAsRead]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -227,7 +228,7 @@ const NotificationClient = ({ userId }) => {
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [openNotification]);
+  }, [SOCKET_URL, openNotification]);
 
   if (!cleanUserId) {
     return (
@@ -338,7 +339,7 @@ const NotificationClient = ({ userId }) => {
                           onClick={async (e) => {
                             e.stopPropagation();
                             try {
-                              await apiCall(`http://localhost:5000/api/notification/${n._id}`, {
+                              await apiCall(`${SOCKET_URL}/api/notification/${n._id}`, {
                                 method: "DELETE",
                               });
 
