@@ -85,7 +85,7 @@ const AddProduct = () => {
       formData.append("price", form.price);
       formData.append("discount", form.discount);
       formData.append("brand", form.brand);
-      formData.append("category", form.category);
+      formData.append("category", form.category.toLocaleLowerCase());
       formData.append("variants", JSON.stringify(variants));
 
       const res = await API.post("/add", formData, {
