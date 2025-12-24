@@ -147,7 +147,7 @@ const EditProduct = () => {
       formData.append('price', form.price);
       formData.append('description', form.description);
       formData.append('brand', form.brand);
-      formData.append('category', form.category);
+      formData.append('category', form.category.toLocaleLowerCase());
       formData.append('discount', form.discount);
       
       // Add variants as JSON string
