@@ -151,10 +151,10 @@ function App() {
                       404 FALLBACK
                       ======================================== */}
                   <Route path="*" element={<Navigate to="/home" replace />} />
+                  {!hideSupportBtnOnProductPage && <SupportBtn />}
                 </Routes>
 
               
-              {!hideSupportBtnOnProductPage && <SupportBtn />}
               
             </AuthProvider>
             </BrowserRouter>
