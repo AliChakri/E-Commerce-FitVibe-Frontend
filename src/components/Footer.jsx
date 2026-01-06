@@ -14,6 +14,8 @@ import {
   Headphones,
   Heart
 } from 'lucide-react';
+import { ThemeProvider } from '../context/ThemeProvider';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -191,7 +193,21 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+        </div>
+                  
+            <div>
+            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">{t('action')}</h4>
+            <ul className="space-y-2">
+                <li key={index}>
+                  <LanguageSwitcher />
+                </li>
+                          
+                <li key={index}>
+                  <ThemeProvider />
+                </li>
+            </ul>
+            </div>
+                  
         </div>
       </div>
 
