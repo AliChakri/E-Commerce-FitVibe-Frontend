@@ -5,6 +5,7 @@ import SliderHome from '../../components/SliderHome';
 import API from '../../context/apiProduct';
 import { useTranslation } from "react-i18next";
 import { useLanguage } from '../../context/LanguageContext';
+import Footer from '../../components/Footer';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -157,7 +158,9 @@ const Home = () => {
               {t("subscribe")}
             </button>
           </div>
-        </section>
+      </section>
+      
+      <Footer />
 
       </div>
 
