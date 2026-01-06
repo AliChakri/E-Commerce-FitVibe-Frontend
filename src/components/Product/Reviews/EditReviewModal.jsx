@@ -109,7 +109,7 @@ const EditReviewModal = ({ product, review, open, onClose, setReviews }) => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("comment", text);
-    formData.append("rating", rating);
+    formData.append("rating", Number(rating));
 
     // Add existing images (URLs to keep)
     existingImages.forEach((imageUrl) => {
