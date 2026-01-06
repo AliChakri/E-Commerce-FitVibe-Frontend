@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import './index.css';
 import Home from "./pages/Main_Layout/Home";
 import About from "./pages/Main_Layout/About";
@@ -50,6 +50,12 @@ import { ThemeProvider } from "./context/ThemeProvider";
 import SearchPage from "./pages/Main_Layout/SearchPage";
 
 function App() {
+
+  const location = useLocation();
+
+  const hideSupportBtnOnProductPage = 
+    location.pathname.startsWith("/products/")
+
   return (
     <div className="relative w-full min-h-screen bg-white dark:bg-gray-900 text-[#080808] overflow-x-hidden">
       <LanguageProvider>
@@ -147,7 +153,9 @@ function App() {
                   <Route path="*" element={<Navigate to="/home" replace />} />
                 </Routes>
 
-                <SupportBtn />
+              
+              {!hideSupportBtnOnProductPage && <SupportBtn />}
+              
             </AuthProvider>
             </BrowserRouter>
         </ThemeProvider>

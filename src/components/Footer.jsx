@@ -19,7 +19,7 @@ const Footer = () => {
 
   const footerLinks = {
     shop: [
-      { name: 'New Arrivals', href: '/new-arrivals' },
+      { name: 'New Arrivals', href: '' },
       { name: 'Best Sellers', href: '/best-sellers' },
       { name: 'Sale', href: '/sale' },
       { name: 'Collections', href: '/collections' },
@@ -93,7 +93,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                YourStore
+                FitVibe
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm mt-3 leading-relaxed">
                 Your trusted destination for quality products and exceptional service. Shop with confidence.
@@ -106,7 +106,7 @@ const Footer = () => {
                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-red-500 transition-colors">
                   <Mail className="w-4 h-4 group-hover:text-white transition-colors" />
                 </div>
-                <span className="text-sm">support@yourstore.com</span>
+                <span className="text-sm">support@store.com</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors group">
                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-green-500 transition-colors">
@@ -118,7 +118,7 @@ const Footer = () => {
                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-purple-500 transition-colors">
                   <MapPin className="w-4 h-4 group-hover:text-white transition-colors" />
                 </div>
-                <span className="text-sm">123 Commerce St, NY 10001</span>
+                <span className="text-sm">123 Commerce St, ALG 1100</span>
               </div>
             </div>
           </div>
