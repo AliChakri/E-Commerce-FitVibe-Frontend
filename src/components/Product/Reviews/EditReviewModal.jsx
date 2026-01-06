@@ -94,6 +94,8 @@ const EditReviewModal = ({ product, review, open, onClose, setReviews }) => {
     });
   };
 
+  console.log(rating);
+
   // Submit handler
   const handleSubmit = async (e) => {
 
