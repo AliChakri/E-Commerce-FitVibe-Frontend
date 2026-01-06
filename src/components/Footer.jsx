@@ -196,8 +196,8 @@ const Footer = () => {
             </ul>
             </div>
                   
-            <div>
-                <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">{t('action')}</h4>
+            <div className='hidden md:block'>
+                <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">{t('actions')}</h4>
                 <ul className="space-y-2">
                     <li>
                     <LanguageSwitcher />
