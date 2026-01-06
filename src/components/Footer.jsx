@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { ThemeProvider } from '../context/ThemeProvider';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeToggle from './ThemeToggle';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -193,19 +194,19 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-        </div>
+            </div>
                   
             <div>
-            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">{t('action')}</h4>
-            <ul className="space-y-2">
-                <li>
-                  <LanguageSwitcher />
-                </li>
-                          
-                <li>
-                  <ThemeProvider />
-                </li>
-            </ul>
+                <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">{t('action')}</h4>
+                <ul className="space-y-2">
+                    <li>
+                    <LanguageSwitcher />
+                    </li>
+                            
+                    <li>
+                    <ThemeToggle />
+                    </li>
+                </ul>
             </div>
                   
         </div>
