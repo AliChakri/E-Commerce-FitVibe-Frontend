@@ -350,7 +350,7 @@ const changeAvatar = async (file) => {
                 {editingSection !== 'personal' ? (
                   <button
                     onClick={() => setEditingSection('personal')}
-                    className="w-full px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors"
+                    className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors"
                   >
                     <Edit2 className="w-4 h-4" />
                     {t("edit")}
@@ -469,7 +469,7 @@ const changeAvatar = async (file) => {
                 {editingSection !== "address" ? (
                   <button
                     onClick={() => setEditingSection("address")}
-                    className="w-full px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors"
+                    className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors"
                   >
                     <Edit2 className="w-4 h-4" />
                     {t("edit")}
