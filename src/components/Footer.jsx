@@ -48,36 +48,36 @@ const Footer = () => {
   };
 
   const features = [
-    { icon: Truck, title: 'Free Shipping', desc: 'On orders over $50' },
-    { icon: Shield, title: 'Secure Payment', desc: '100% protected' },
-    { icon: Headphones, title: '24/7 Support', desc: 'Dedicated support' },
-    { icon: CreditCard, title: 'Easy Returns', desc: '30-day guarantee' }
+    { icon: Truck, title: 'Free Shipping', desc: 'On orders over $50', color: 'hover:bg-green-500' },
+    { icon: Shield, title: 'Secure Payment', desc: '100% protected', color: 'hover:bg-blue-500' },
+    { icon: Headphones, title: '24/7 Support', desc: 'Dedicated support', color: 'hover:bg-purple-500' },
+    { icon: CreditCard, title: 'Easy Returns', desc: '30-day guarantee', color: 'hover:bg-orange-500' }
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Youtube, href: '#', label: 'Youtube' }
+    { icon: Facebook, href: '#', label: 'Facebook', hoverColor: 'hover:bg-[#1877F2]' },
+    { icon: Twitter, href: '#', label: 'Twitter', hoverColor: 'hover:bg-[#1DA1F2]' },
+    { icon: Instagram, href: '#', label: 'Instagram', hoverColor: 'hover:bg-gradient-to-tr hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#515BD4]' },
+    { icon: Youtube, href: '#', label: 'Youtube', hoverColor: 'hover:bg-[#FF0000]' }
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 text-white">
+    <footer className="bg-white dark:bg-gray-900 mt-72 md:mt-[10vh] transition-colors duration-300">
       {/* Features Section */}
-      <div className="border-b border-gray-700">
+      <div className="border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div 
                 key={index} 
-                className="flex items-center gap-4 p-4 rounded-xl bg-white bg-opacity-5 backdrop-blur-sm hover:bg-opacity-10 transition-all duration-300 group"
+                className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition-all duration-300 group border border-gray-200 dark:border-gray-700"
               >
-                <div className="p-3 bg-blue-600 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-6 h-6 text-white" />
+                <div className={`p-3 bg-gray-200 dark:bg-gray-700 rounded-xl group-hover:scale-110 transition-all duration-300 ${feature.color}`}>
+                  <feature.icon className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-sm">{feature.title}</h4>
-                  <p className="text-xs text-gray-400 mt-0.5">{feature.desc}</p>
+                  <h4 className="font-semibold text-sm text-gray-900 dark:text-white">{feature.title}</h4>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{feature.desc}</p>
                 </div>
               </div>
             ))}
@@ -92,31 +92,31 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 YourStore
               </h3>
-              <p className="text-gray-400 text-sm mt-3 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 text-sm mt-3 leading-relaxed">
                 Your trusted destination for quality products and exceptional service. Shop with confidence.
               </p>
             </div>
 
             {/* Contact Info */}
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
-                <div className="p-2 bg-gray-800 rounded-lg group-hover:bg-blue-600 transition-colors">
-                  <Mail className="w-4 h-4" />
+              <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group">
+                <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-red-500 transition-colors">
+                  <Mail className="w-4 h-4 group-hover:text-white transition-colors" />
                 </div>
                 <span className="text-sm">support@yourstore.com</span>
               </div>
-              <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
-                <div className="p-2 bg-gray-800 rounded-lg group-hover:bg-blue-600 transition-colors">
-                  <Phone className="w-4 h-4" />
+              <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors group">
+                <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-green-500 transition-colors">
+                  <Phone className="w-4 h-4 group-hover:text-white transition-colors" />
                 </div>
                 <span className="text-sm">+1 (555) 123-4567</span>
               </div>
-              <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
-                <div className="p-2 bg-gray-800 rounded-lg group-hover:bg-blue-600 transition-colors">
-                  <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors group">
+                <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-purple-500 transition-colors">
+                  <MapPin className="w-4 h-4 group-hover:text-white transition-colors" />
                 </div>
                 <span className="text-sm">123 Commerce St, NY 10001</span>
               </div>
@@ -125,13 +125,13 @@ const Footer = () => {
 
           {/* Shop Links */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Shop</h4>
+            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">Shop</h4>
             <ul className="space-y-2">
               {footerLinks.shop.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-gray-400 hover:text-white text-sm transition-colors duration-200 hover:translate-x-1 inline-block"
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-all duration-200 hover:translate-x-1 inline-block"
                   >
                     {link.name}
                   </a>
@@ -142,13 +142,13 @@ const Footer = () => {
 
           {/* Customer Service */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Customer Service</h4>
+            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">Customer Service</h4>
             <ul className="space-y-2">
               {footerLinks.customer.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-gray-400 hover:text-white text-sm transition-colors duration-200 hover:translate-x-1 inline-block"
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-all duration-200 hover:translate-x-1 inline-block"
                   >
                     {link.name}
                   </a>
@@ -159,13 +159,13 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Company</h4>
+            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">Company</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-gray-400 hover:text-white text-sm transition-colors duration-200 hover:translate-x-1 inline-block"
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-all duration-200 hover:translate-x-1 inline-block"
                   >
                     {link.name}
                   </a>
@@ -176,13 +176,13 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Legal</h4>
+            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">Legal</h4>
             <ul className="space-y-2">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-gray-400 hover:text-white text-sm transition-colors duration-200 hover:translate-x-1 inline-block"
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-all duration-200 hover:translate-x-1 inline-block"
                   >
                     {link.name}
                   </a>
@@ -191,33 +191,15 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-
-        {/* Newsletter Section */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
-          <div className="max-w-md mx-auto lg:mx-0">
-            <h4 className="font-bold text-lg mb-3">Subscribe to our newsletter</h4>
-            <p className="text-gray-400 text-sm mb-4">Get the latest updates on new products and upcoming sales</p>
-            <div className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              />
-              <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 bg-gray-900 bg-opacity-50">
+      <div className="border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             
             {/* Copyright */}
-            <div className="text-gray-400 text-sm flex items-center gap-2">
+            <div className="text-gray-600 dark:text-gray-400 text-sm flex items-center gap-2">
               <span>© {currentYear} YourStore. Made with</span>
               <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
               <span>All rights reserved.</span>
@@ -230,25 +212,23 @@ const Footer = () => {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className="p-2.5 bg-gray-800 rounded-xl hover:bg-blue-600 transition-all duration-300 hover:scale-110 group"
+                  className={`p-2.5 bg-gray-200 dark:bg-gray-700 rounded-xl ${social.hoverColor} transition-all duration-300 hover:scale-110 group`}
                 >
-                  <social.icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                  <social.icon className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors" />
                 </a>
               ))}
             </div>
 
             {/* Payment Methods */}
             <div className="flex items-center gap-2">
-              <span className="text-gray-400 text-xs mr-2">We accept:</span>
+              <span className="text-gray-600 dark:text-gray-400 text-xs mr-2">We accept:</span>
               <div className="flex gap-2">
-                {['VISA', 'MC', 'AMEX', 'PP'].map((method, index) => (
-                  <div 
-                    key={index}
-                    className="px-3 py-1.5 bg-gray-800 rounded-lg text-xs font-bold text-gray-400 hover:text-white hover:bg-gray-700 transition-all"
-                  >
-                    {method}
-                  </div>
-                ))}
+                <div className="px-3 py-1.5 bg-gray-200 dark:bg-gray-700 rounded-lg text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-white hover:bg-[#003087] transition-all">
+                  PayPal
+                </div>
+                <div className="px-3 py-1.5 bg-gray-200 dark:bg-gray-700 rounded-lg text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 transition-all">
+                  Dahabiya
+                </div>
               </div>
             </div>
           </div>
