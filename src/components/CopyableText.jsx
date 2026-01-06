@@ -19,11 +19,11 @@ const CopyableText = ({ text }) => {
         }
     }
     return (
-        <span onClick={handleCopy} className="relative cursor-pointer">
-            {text}
+        <span onClick={handleCopy} className="relative hover:underline cursor-pointer">
+            {String(text).slice(0, 10)}...
 
             {copied && (
-                <span className="absolute -top-6 left-0 text-xs bg-black text-white px-2 py-1 rounded">
+                <span className="absolute -top-6 left-0 text-xs bg-black dark:bg-white text-white dark:text-gray-800 px-2 py-1 rounded">
                     Copied!
                 </span>
             )}
