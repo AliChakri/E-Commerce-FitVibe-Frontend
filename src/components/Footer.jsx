@@ -198,11 +198,11 @@ const Footer = () => {
             <div>
             <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">{t('action')}</h4>
             <ul className="space-y-2">
-                <li key={index}>
+                <li>
                   <LanguageSwitcher />
                 </li>
                           
-                <li key={index}>
+                <li>
                   <ThemeProvider />
                 </li>
             </ul>
