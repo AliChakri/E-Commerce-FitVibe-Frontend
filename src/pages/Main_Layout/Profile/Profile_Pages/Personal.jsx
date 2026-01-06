@@ -359,14 +359,14 @@ const changeAvatar = async (file) => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleCancel('personal')}
-                      className="px-2 py-2 md:px-4 md:py-2 flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                      className="text-sm md:text-md px-2 py-2 md:px-4 md:py-2 flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
                     >
                       <X className="w-4 h-4" /> {t("cancel")}
                     </button>
                     <button
                       onClick={changeName}
                       disabled={loading}
-                      className="px-2 py-2 md:px-4 md:py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="text-sm md:text-md px-2 py-2 md:px-4 md:py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                       {t("save")}
@@ -478,14 +478,14 @@ const changeAvatar = async (file) => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleCancel('address')}
-                      className="px-2 py-2 md:px-4 md:py-2 flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                      className="text-sm md:text-md px-2 py-2 md:px-4 md:py-2 flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
                     >
                       <X className="w-4 h-4" /> {t("cancel")}
                     </button>
                     <button
                       onClick={changeAddress}
                       disabled={loading}
-                      className="px-2 py-2 md:px-4 md:py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="text-sm md:text-md px-2 py-2 md:px-4 md:py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                       {t("save")}
