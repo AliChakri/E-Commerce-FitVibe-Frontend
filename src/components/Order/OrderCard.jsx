@@ -11,6 +11,7 @@ import {
 import ReportModal from "../Report/ReportModal";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import CopyableText from "../CopyableText";
 
 const OrderCard = ({ order }) => {
 
@@ -155,7 +156,7 @@ const OrderCard = ({ order }) => {
         </div>
         <div>
           <h2 className="flex items-center justify-between text-xs md:text-lg font-semibold text-slate-800 dark:text-gray-100">
-            <span> {t("order")}</span> #{order._id}
+            <span> {t("order")}</span> #{<CopyableText text={order._id} />}
           </h2>
           <p className="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
             <Calendar size={17} />
