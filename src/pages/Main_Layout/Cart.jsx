@@ -190,8 +190,10 @@ const Cart = () => {
     {/* Header */}
     <div className="flex items-center gap-3 mb-8">
       <ShoppingCart className="h-8 w-8 text-gray-700 dark:text-gray-300" />
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{t("shoppingCart")}</h1>
-      <span className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-sm font-medium">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">
+              {t("shoppingCart")}
+            </h1>
+      <span className="text-xs sm:text-sm md:text-md lg:text-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-3 py-1 rounded-full font-medium">
         {carts?.items?.length ?? 0} {t("items")}
       </span>
     </div>

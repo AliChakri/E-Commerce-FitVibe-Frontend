@@ -204,8 +204,12 @@ const changeAvatar = async (file) => {
 
         {/* HEADER */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">{t("myProfile")}</h1>
-          <p className="text-gray-600 dark:text-gray-400">{t("manageYourPersonalInformation")}</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+            {t("myProfile")}
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            {t("manageYourPersonalInformation")}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -282,12 +286,14 @@ const changeAvatar = async (file) => {
             {/* PERSONAL INFO CARD */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
 
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex flex-col md:flex-row justify-between items-center mb-6">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-blue-600/20 rounded-lg">
                     <User className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{t("personalInformation")}</h3>
+                  <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white">
+                    {t("personalInformation")}
+                  </h3>
                 </div>
 
                 {editingSection !== 'personal' ? (
@@ -371,12 +377,14 @@ const changeAvatar = async (file) => {
             {/* ADDRESS CARD */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
 
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex flex-col md:flex-row justify-between items-center mb-6">
                 <div className="flex gap-3 items-center">
                   <div className="p-2 bg-blue-600/20 rounded-lg">
                     <MapPin className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{t("shippingAddress")}</h3>
+                  <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white">
+                    {t("shippingAddress")}
+                  </h3>
                 </div>
 
                 {editingSection !== "address" ? (
