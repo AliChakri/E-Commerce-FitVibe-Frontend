@@ -284,7 +284,7 @@ const changeAvatar = async (file) => {
           <div className="lg:col-span-2 space-y-6">
 
             {/* PERSONAL INFO CARD */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+            <div className="flex flex-col gap-4 bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
 
               <div className="flex flex-col md:flex-row justify-between items-center mb-6">
                 <div className="flex items-center gap-3">
@@ -377,7 +377,7 @@ const changeAvatar = async (file) => {
             </div>
 
             {/* ADDRESS CARD */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+            <div className="flex flex-col gap-4 bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
 
               <div className="flex flex-col md:flex-row justify-between items-center mb-6">
                 <div className="flex gap-3 items-center">

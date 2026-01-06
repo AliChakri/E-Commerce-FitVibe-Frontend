@@ -130,81 +130,81 @@ const PersonalOrders = () => {
 
       </div>
 
-{/* FILTER + SORT BAR */}
-<div className="flex flex-col gap-4 my-8">
+        {/* FILTER + SORT BAR */}
+        <div className="flex flex-col gap-4 my-8">
 
-  {/* FILTER BUTTONS */}
-  <div className="flex flex-wrap md:flex-row flex-col gap-2 w-full">
+          {/* FILTER BUTTONS */}
+          <div className="flex flex-wrap md:flex-row flex-col gap-2 w-full">
 
-    {['All', 'Paid', 'Pending', 'Cancelled'].map((stat, index) => (
-      <button
-        key={index}
-        onClick={() => setSelectedFilter(stat)}
-        className={`
-          group px-4 py-2 rounded-xl border text-sm font-medium flex items-center justify-between md:justify-center gap-2
-          transition-all duration-200 shadow-sm
-          w-full md:w-auto
-          ${
-            selectedFilter === stat
-              ? 'bg-blue-600 text-white border-blue-700 shadow-md'
-              : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-          }
-        `}
-      >
-        <div className="flex items-center gap-2">
-          <span className="opacity-70 group-hover:opacity-100 transition-all duration-150">
-            {getIcon(stat)}
-          </span>
-          {t(String(stat).toLowerCase())}
+            {['All', 'Paid', 'Pending', 'Cancelled'].map((stat, index) => (
+              <button
+                key={index}
+                onClick={() => setSelectedFilter(stat)}
+                className={`
+                  group px-4 py-2 rounded-xl border text-sm font-medium flex items-center justify-between md:justify-center gap-2
+                  transition-all duration-200 shadow-sm
+                  w-full md:w-auto
+                  ${
+                    selectedFilter === stat
+                      ? 'bg-blue-600 text-white border-blue-700 shadow-md'
+                      : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  }
+                `}
+              >
+                <div className="flex items-center gap-2">
+                  <span className="opacity-70 group-hover:opacity-100 transition-all duration-150">
+                    {getIcon(stat)}
+                  </span>
+                  {t(String(stat).toLowerCase())}
+                </div>
+                <span className="px-2 py-0.5 text-xs rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 border border-gray-300 dark:border-gray-600">
+                  {countOrders[stat] || 0}
+                </span>
+              </button>
+            ))}
+
+          </div>
+
+
+          {/* SORT BUTTON */}
+          <button
+            onClick={() => setSortDate(!sortDate)}
+            className="
+              flex items-center justify-between md:justify-center gap-2 px-4 py-2 rounded-xl text-sm font-medium
+              border bg-white dark:bg-gray-900 shadow-sm transition duration-200
+              hover:bg-gray-100 dark:hover:bg-gray-800
+              text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700
+              w-full md:w-auto
+            "
+          >
+            {sortDate ? <ArrowDown /> : <ArrowUp />}
+            {sortDate ? t("oldest") : t("latest")}
+          </button>
+
         </div>
-        <span className="px-2 py-0.5 text-xs rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 border border-gray-300 dark:border-gray-600">
-          {countOrders[stat] || 0}
-        </span>
-      </button>
-    ))}
-
-  </div>
-
-
-  {/* SORT BUTTON */}
-  <button
-    onClick={() => setSortDate(!sortDate)}
-    className="
-      flex items-center justify-between md:justify-center gap-2 px-4 py-2 rounded-xl text-sm font-medium
-      border bg-white dark:bg-gray-900 shadow-sm transition duration-200
-      hover:bg-gray-100 dark:hover:bg-gray-800
-      text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700
-      w-full md:w-auto
-    "
-  >
-    {sortDate ? <ArrowDown /> : <ArrowUp />}
-    {sortDate ? t("oldest") : t("latest")}
-  </button>
-
-</div>
 
 
       {/* ORDER LIST */}
       {filteredOrders.length > 0 ? (
         filteredOrders.map((order) => <OrderCard key={order._id} order={order} />)
       ) : (
-<div className="w-[80vw] h-[50vh] flex items-center justify-center text-center py-16 mx-auto">
-  <div className="max-w-md">
-    <div className="bg-gray-100 dark:bg-gray-800 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
-      <Package className="h-12 w-12 text-gray-400 dark:text-gray-500" />
-    </div>
-
-    <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
-      {t("noOrdersPlaced")}
-    </h2>
-
-    <p className="text-gray-600 dark:text-gray-400 mb-8">
-      {t("noOrdersFound")}
-    </p>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl transition-colors">
-                        {t("continueShopping")}
-                </button>
+        <div className="w-[80vw] h-[50vh] flex items-center justify-center text-center py-16 mx-auto">
+          <div className="max-w-md">
+            <div className="bg-gray-100 dark:bg-gray-800 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+              <Package className="h-12 w-12 text-gray-400 dark:text-gray-500" />
             </div>
+
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
+              {t("noOrdersPlaced")}
+            </h2>
+
+            <p className="text-gray-600 dark:text-gray-400 mb-8">
+              {t("noOrdersFound")}
+            </p>
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl transition-colors">
+                    {t("continueShopping")}
+            </button>
+          </div>
         </div>
       )}
 
