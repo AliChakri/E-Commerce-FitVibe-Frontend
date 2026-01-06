@@ -702,7 +702,57 @@
   "comfortMeetsPerformance": "Comfort Meets Performance",
   "classicEssentials": "Classic Essentials",
   "everydayMustHaves": "Everyday must-haves",
-  "explore": "Explore"
+  "explore": "Explore",
+
+  "feature_free_shipping_title": "Free Shipping",
+  "feature_free_shipping_desc": "On orders over $50",
+  "feature_secure_payment_title": "Secure Payment",
+  "feature_secure_payment_desc": "100% protected",
+  "feature_24_7_support_title": "24/7 Support",
+  "feature_24_7_support_desc": "Dedicated support",
+  "feature_easy_returns_title": "Easy Returns",
+  "feature_easy_returns_desc": "30-day guarantee",
+
+  "shop_new_arrivals": "New Arrivals",
+  "shop_best_sellers": "Best Sellers",
+  "shop_sale": "Sale",
+  "shop_collections": "Collections",
+  "shop_gift_cards": "Gift Cards",
+
+  "customer_my_account": "My Account",
+  "customer_order_tracking": "Order Tracking",
+  "customer_wishlist": "Wishlist",
+  "customer_help_center": "Help Center",
+  "customer_returns": "Returns",
+
+  "company_about_us": "About Us",
+  "company_careers": "Careers",
+  "company_blog": "Blog",
+  "company_press": "Press",
+  "company_contact": "Contact",
+
+  "legal_privacy_policy": "Privacy Policy",
+  "legal_terms_of_service": "Terms of Service",
+  "legal_cookie_policy": "Cookie Policy",
+  "legal_shipping_policy": "Shipping Policy",
+
+  "company_name": "FitVibe",
+  "company_description": "Your trusted destination for quality products and exceptional service. Shop with confidence.",
+  "contact_email": "support@store.com",
+  "contact_phone": "+1 (555) 123-4567",
+  "contact_address": "123 Commerce St, ALG 1100",
+
+  "bottom_copyright": "All rights reserved.",
+  "bottom_made_with": "Made with",
+  "bottom_we_accept": "We accept:",
+
+  "social_facebook": "Facebook",
+  "social_twitter": "Twitter",
+  "social_instagram": "Instagram",
+  "social_youtube": "Youtube",
+
+  "payment_paypal": "PayPal",
+  "payment_dahabiya": "Dahabiya"
   
 
     

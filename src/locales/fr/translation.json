@@ -702,6 +702,56 @@
   "comfortMeetsPerformance": "Confort et performance",
   "classicEssentials": "Indispensables classiques",
   "everydayMustHaves": "Indispensables du quotidien",
-  "explore": "Explorer"
+  "explore": "Explorer",
+
+  "feature_free_shipping_title": "Livraison gratuite",
+  "feature_free_shipping_desc": "Pour les commandes supérieures à 50 $",
+  "feature_secure_payment_title": "Paiement sécurisé",
+  "feature_secure_payment_desc": "100% protégé",
+  "feature_24_7_support_title": "Support 24/7",
+  "feature_24_7_support_desc": "Support dédié",
+  "feature_easy_returns_title": "Retours faciles",
+  "feature_easy_returns_desc": "Garantie de 30 jours",
+
+  "shop_new_arrivals": "Nouveautés",
+  "shop_best_sellers": "Meilleures ventes",
+  "shop_sale": "Soldes",
+  "shop_collections": "Collections",
+  "shop_gift_cards": "Cartes-cadeaux",
+
+  "customer_my_account": "Mon compte",
+  "customer_order_tracking": "Suivi de commande",
+  "customer_wishlist": "Liste de souhaits",
+  "customer_help_center": "Centre d'aide",
+  "customer_returns": "Retours",
+
+  "company_about_us": "À propos de nous",
+  "company_careers": "Carrières",
+  "company_blog": "Blog",
+  "company_press": "Presse",
+  "company_contact": "Contact",
+
+  "legal_privacy_policy": "Politique de confidentialité",
+  "legal_terms_of_service": "Conditions d'utilisation",
+  "legal_cookie_policy": "Politique de cookies",
+  "legal_shipping_policy": "Politique d'expédition",
+
+  "company_name": "FitVibe",
+  "company_description": "Votre destination de confiance pour des produits de qualité et un service exceptionnel. Achetez en toute confiance.",
+  "contact_email": "support@store.com",
+  "contact_phone": "+1 (555) 123-4567",
+  "contact_address": "123 Commerce St, ALG 1100",
+
+  "bottom_copyright": "Tous droits réservés.",
+  "bottom_made_with": "Fait avec",
+  "bottom_we_accept": "Nous acceptons :",
+
+  "social_facebook": "Facebook",
+  "social_twitter": "Twitter",
+  "social_instagram": "Instagram",
+  "social_youtube": "Youtube",
+
+  "payment_paypal": "PayPal",
+  "payment_dahabiya": "Dahabiya"
 
 }

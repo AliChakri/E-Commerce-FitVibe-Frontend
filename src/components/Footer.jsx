@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Facebook, 
   Twitter, 
@@ -15,50 +16,51 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     shop: [
-      { name: 'New Arrivals', href: '' },
-      { name: 'Best Sellers', href: '/best-sellers' },
-      { name: 'Sale', href: '/sale' },
-      { name: 'Collections', href: '/collections' },
-      { name: 'Gift Cards', href: '/gift-cards' }
+      { name: t('shop_new_arrivals'), href: '' },
+      { name: t('shop_best_sellers'), href: '/best-sellers' },
+      { name: t('shop_sale'), href: '/sale' },
+      { name: t('shop_collections'), href: '/collections' },
+      { name: t('shop_gift_cards'), href: '/gift-cards' }
     ],
     customer: [
-      { name: 'My Account', href: '/account' },
-      { name: 'Order Tracking', href: '/tracking' },
-      { name: 'Wishlist', href: '/wishlist' },
-      { name: 'Help Center', href: '/help' },
-      { name: 'Returns', href: '/returns' }
+      { name: t('customer_my_account'), href: '/account' },
+      { name: t('customer_order_tracking'), href: '/tracking' },
+      { name: t('customer_wishlist'), href: '/wishlist' },
+      { name: t('customer_help_center'), href: '/help' },
+      { name: t('customer_returns'), href: '/returns' }
     ],
     company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Careers', href: '/careers' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Press', href: '/press' },
-      { name: 'Contact', href: '/contact' }
+      { name: t('company_about_us'), href: '/about' },
+      { name: t('company_careers'), href: '/careers' },
+      { name: t('company_blog'), href: '/blog' },
+      { name: t('company_press'), href: '/press' },
+      { name: t('company_contact'), href: '/contact' }
     ],
     legal: [
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms of Service', href: '/terms' },
-      { name: 'Cookie Policy', href: '/cookies' },
-      { name: 'Shipping Policy', href: '/shipping' }
+      { name: t('legal_privacy_policy'), href: '/privacy' },
+      { name: t('legal_terms_of_service'), href: '/terms' },
+      { name: t('legal_cookie_policy'), href: '/cookies' },
+      { name: t('legal_shipping_policy'), href: '/shipping' }
     ]
   };
 
   const features = [
-    { icon: Truck, title: 'Free Shipping', desc: 'On orders over $50', color: 'hover:bg-green-500' },
-    { icon: Shield, title: 'Secure Payment', desc: '100% protected', color: 'hover:bg-blue-500' },
-    { icon: Headphones, title: '24/7 Support', desc: 'Dedicated support', color: 'hover:bg-purple-500' },
-    { icon: CreditCard, title: 'Easy Returns', desc: '30-day guarantee', color: 'hover:bg-orange-500' }
+    { icon: Truck, title: t('feature_free_shipping_title'), desc: t('feature_free_shipping_desc'), color: 'hover:bg-green-500' },
+    { icon: Shield, title: t('feature_secure_payment_title'), desc: t('feature_secure_payment_desc'), color: 'hover:bg-blue-500' },
+    { icon: Headphones, title: t('feature_24_7_support_title'), desc: t('feature_24_7_support_desc'), color: 'hover:bg-purple-500' },
+    { icon: CreditCard, title: t('feature_easy_returns_title'), desc: t('feature_easy_returns_desc'), color: 'hover:bg-orange-500' }
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook', hoverColor: 'hover:bg-[#1877F2]' },
-    { icon: Twitter, href: '#', label: 'Twitter', hoverColor: 'hover:bg-[#1DA1F2]' },
-    { icon: Instagram, href: '#', label: 'Instagram', hoverColor: 'hover:bg-gradient-to-tr hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#515BD4]' },
-    { icon: Youtube, href: '#', label: 'Youtube', hoverColor: 'hover:bg-[#FF0000]' }
+    { icon: Facebook, href: '#', label: t('social_facebook'), hoverColor: 'hover:bg-[#1877F2]' },
+    { icon: Twitter, href: '#', label: t('social_twitter'), hoverColor: 'hover:bg-[#1DA1F2]' },
+    { icon: Instagram, href: '#', label: t('social_instagram'), hoverColor: 'hover:bg-gradient-to-tr hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#515BD4]' },
+    { icon: Youtube, href: '#', label: t('social_youtube'), hoverColor: 'hover:bg-[#FF0000]' }
   ];
 
   return (
@@ -93,10 +95,10 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                FitVibe
+                {t('company_name')}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm mt-3 leading-relaxed">
-                Your trusted destination for quality products and exceptional service. Shop with confidence.
+                {t('company_description')}
               </p>
             </div>
 
@@ -106,26 +108,26 @@ const Footer = () => {
                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-red-500 transition-colors">
                   <Mail className="w-4 h-4 group-hover:text-white transition-colors" />
                 </div>
-                <span className="text-sm">support@store.com</span>
+                <span className="text-sm">{t('contact_email')}</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors group">
                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-green-500 transition-colors">
                   <Phone className="w-4 h-4 group-hover:text-white transition-colors" />
                 </div>
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">{t('contact_phone')}</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors group">
                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-purple-500 transition-colors">
                   <MapPin className="w-4 h-4 group-hover:text-white transition-colors" />
                 </div>
-                <span className="text-sm">123 Commerce St, ALG 1100</span>
+                <span className="text-sm">{t('contact_address')}</span>
               </div>
             </div>
           </div>
 
           {/* Shop Links */}
           <div>
-            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">Shop</h4>
+            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">{t('shop_new_arrivals')}</h4>
             <ul className="space-y-2">
               {footerLinks.shop.map((link, index) => (
                 <li key={index}>
@@ -142,7 +144,7 @@ const Footer = () => {
 
           {/* Customer Service */}
           <div>
-            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">Customer Service</h4>
+            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">{t('customer_my_account')}</h4>
             <ul className="space-y-2">
               {footerLinks.customer.map((link, index) => (
                 <li key={index}>
@@ -159,7 +161,7 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">Company</h4>
+            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">{t('company_about_us')}</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
@@ -176,7 +178,7 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">Legal</h4>
+            <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">{t('legal_privacy_policy')}</h4>
             <ul className="space-y-2">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
@@ -200,9 +202,9 @@ const Footer = () => {
             
             {/* Copyright */}
             <div className="text-gray-600 dark:text-gray-400 text-sm flex items-center gap-2">
-              <span>© {currentYear} YourStore. Made with</span>
+              <span>© {currentYear} {t('company_name')}. {t('bottom_made_with')}</span>
               <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
-              <span>All rights reserved.</span>
+              <span>{t('bottom_copyright')}</span>
             </div>
 
             {/* Social Links */}
@@ -221,13 +223,13 @@ const Footer = () => {
 
             {/* Payment Methods */}
             <div className="flex items-center gap-2">
-              <span className="text-gray-600 dark:text-gray-400 text-xs mr-2">We accept:</span>
+              <span className="text-gray-600 dark:text-gray-400 text-xs mr-2">{t('bottom_we_accept')}</span>
               <div className="flex gap-2">
                 <div className="px-3 py-1.5 bg-gray-200 dark:bg-gray-700 rounded-lg text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-white hover:bg-[#003087] transition-all">
-                  PayPal
+                  {t('payment_paypal')}
                 </div>
                 <div className="px-3 py-1.5 bg-gray-200 dark:bg-gray-700 rounded-lg text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 transition-all">
-                  Dahabiya
+                  {t('payment_dahabiya')}
                 </div>
               </div>
             </div>

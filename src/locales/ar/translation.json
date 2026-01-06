@@ -701,6 +701,56 @@
   "comfortMeetsPerformance": "الراحة تلتقي بالأداء",
   "classicEssentials": "أساسيات كلاسيكية",
   "everydayMustHaves": "أساسيات يومية",
-  "explore": "استكشف"
+  "explore": "استكشف",
+
+  "feature_free_shipping_title": "شحن مجاني",
+  "feature_free_shipping_desc": "للطلبات التي تزيد عن 50 $",
+  "feature_secure_payment_title": "دفع آمن",
+  "feature_secure_payment_desc": "محمي 100%",
+  "feature_24_7_support_title": "دعم 24/7",
+  "feature_24_7_support_desc": "دعم مخصص",
+  "feature_easy_returns_title": "إرجاع سهل",
+  "feature_easy_returns_desc": "ضمان 30 يومًا",
+
+  "shop_new_arrivals": "الوافدون الجدد",
+  "shop_best_sellers": "الأكثر مبيعًا",
+  "shop_sale": "تخفيضات",
+  "shop_collections": "المجموعات",
+  "shop_gift_cards": "بطاقات الهدايا",
+
+  "customer_my_account": "حسابي",
+  "customer_order_tracking": "تتبع الطلب",
+  "customer_wishlist": "قائمة الأمنيات",
+  "customer_help_center": "مركز المساعدة",
+  "customer_returns": "الإرجاع",
+
+  "company_about_us": "معلومات عنا",
+  "company_careers": "وظائف",
+  "company_blog": "المدونة",
+  "company_press": "الصحافة",
+  "company_contact": "اتصل بنا",
+
+  "legal_privacy_policy": "سياسة الخصوصية",
+  "legal_terms_of_service": "شروط الخدمة",
+  "legal_cookie_policy": "سياسة الكوكيز",
+  "legal_shipping_policy": "سياسة الشحن",
+
+  "company_name": "FitVibe",
+  "company_description": "وجهتك الموثوقة للمنتجات عالية الجودة والخدمة الاستثنائية. تسوق بثقة.",
+  "contact_email": "support@store.com",
+  "contact_phone": "+1 (555) 123-4567",
+  "contact_address": "123 Commerce St, ALG 1100",
+
+  "bottom_copyright": "جميع الحقوق محفوظة.",
+  "bottom_made_with": "مصنوع بـ",
+  "bottom_we_accept": "نقبل:",
+
+  "social_facebook": "فيسبوك",
+  "social_twitter": "تويتر",
+  "social_instagram": "إنستغرام",
+  "social_youtube": "يوتيوب",
+
+  "payment_paypal": "باي بال",
+  "payment_dahabiya": "ذهبية"
   
 }
