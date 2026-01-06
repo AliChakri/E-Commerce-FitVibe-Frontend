@@ -60,7 +60,6 @@ function App() {
     <div className="relative w-full min-h-screen bg-white dark:bg-gray-900 text-[#080808] overflow-x-hidden">
       <LanguageProvider>
         <ThemeProvider>
-          <BrowserRouter>
             <AuthProvider>
                 <ToastContainer 
                   position="top-right"
@@ -151,13 +150,12 @@ function App() {
                       404 FALLBACK
                       ======================================== */}
                   <Route path="*" element={<Navigate to="/home" replace />} />
-                  {!hideSupportBtnOnProductPage && <SupportBtn />}
                 </Routes>
 
+              {!hideSupportBtnOnProductPage && <SupportBtn />}
               
               
             </AuthProvider>
-            </BrowserRouter>
         </ThemeProvider>
       </LanguageProvider>
     </div>

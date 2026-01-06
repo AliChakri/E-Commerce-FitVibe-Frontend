@@ -7,5 +7,7 @@ import "./locales/i18n"
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-        <App />
+        <BrowserRouter>
+                <App />
+        </BrowserRouter>
 );
