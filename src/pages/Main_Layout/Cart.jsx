@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LatestSuggestion from '../../components/Product/LatestSuggestion';
 import { useAuth } from '../../context/AuthProvider';
+import Footer from '../../components/Footer';
 
 const getCartItemKey = (item) => {
     if (!item?.product?._id) return null;
@@ -364,6 +365,8 @@ const Cart = () => {
         
       <LatestSuggestion user={user}/>
 
+        <Footer />
+        
 </div>
 
     );

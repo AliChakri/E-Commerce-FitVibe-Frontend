@@ -17,6 +17,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import API from "../../context/apiProduct";
 import SpinnerLoad from "../../components/SpinnerLoad";
 import { useTranslation } from "react-i18next";
+import Footer from "../../components/Footer";
 
 const Collection = () => {
 
@@ -449,7 +450,10 @@ const Collection = () => {
       )}
     </div>
 
-  </div>
+      </div>
+      
+      <Footer />
+
 </section>
 
 

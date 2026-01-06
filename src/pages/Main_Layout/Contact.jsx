@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Headphones, CheckCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import Footer from '../../components/Footer';
 
 const Contact = () => {
     const { t } = useTranslation();
@@ -293,6 +294,9 @@ const Contact = () => {
                     </button>
                 </div>
             </section>
+
+            <Footer />
+
         </div>
 
     );

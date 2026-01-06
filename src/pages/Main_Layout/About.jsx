@@ -1,6 +1,7 @@
 import React from "react";
 import { Shield, Heart, Truck, Leaf, ArrowRight, CheckCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import Footer from "../../components/Footer";
 
 const About = () => {
   const { t } = useTranslation();
@@ -222,7 +223,9 @@ const About = () => {
         </button>
       </div>
     </div>
-  </section>
+      </section>
+      
+      <Footer />
 
 </div>
 
