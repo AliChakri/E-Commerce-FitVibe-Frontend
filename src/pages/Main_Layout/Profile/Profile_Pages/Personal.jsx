@@ -296,32 +296,6 @@ const changeAvatar = async (file) => {
                   </h3>
                 </div>
 
-                {editingSection !== 'personal' ? (
-                  <button
-                    onClick={() => setEditingSection('personal')}
-                    className="px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors"
-                  >
-                    <Edit2 className="w-4 h-4" />
-                    {t("edit")}
-                  </button>
-                ) : (
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => handleCancel('personal')}
-                      className="px-4 py-2 flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                    >
-                      <X className="w-4 h-4" /> {t("cancel")}
-                    </button>
-                    <button
-                      onClick={changeName}
-                      disabled={loading}
-                      className="px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                      {t("save")}
-                    </button>
-                  </div>
-                )}
               </div>
 
               {/* Inputs */}
@@ -372,6 +346,34 @@ const changeAvatar = async (file) => {
                   />
                 </div>
               </div>
+
+                {editingSection !== 'personal' ? (
+                  <button
+                    onClick={() => setEditingSection('personal')}
+                    className="w-full px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors"
+                  >
+                    <Edit2 className="w-4 h-4" />
+                    {t("edit")}
+                  </button>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => handleCancel('personal')}
+                      className="px-4 py-2 flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    >
+                      <X className="w-4 h-4" /> {t("cancel")}
+                    </button>
+                    <button
+                      onClick={changeName}
+                      disabled={loading}
+                      className="px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                      {t("save")}
+                    </button>
+                  </div>
+                )}
+
             </div>
 
             {/* ADDRESS CARD */}
@@ -387,32 +389,6 @@ const changeAvatar = async (file) => {
                   </h3>
                 </div>
 
-                {editingSection !== "address" ? (
-                  <button
-                    onClick={() => setEditingSection("address")}
-                    className="px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors"
-                  >
-                    <Edit2 className="w-4 h-4" />
-                    {t("edit")}
-                  </button>
-                ) : (
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => handleCancel('address')}
-                      className="px-4 py-2 flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                    >
-                      <X className="w-4 h-4" /> {t("cancel")}
-                    </button>
-                    <button
-                      onClick={changeAddress}
-                      disabled={loading}
-                      className="px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                      {t("save")}
-                    </button>
-                  </div>
-                )}
               </div>
 
               {/* Address Inputs */}
@@ -489,6 +465,34 @@ const changeAvatar = async (file) => {
                   />
                 </div> */}
               </div>
+
+                {editingSection !== "address" ? (
+                  <button
+                    onClick={() => setEditingSection("address")}
+                    className="w-full px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors"
+                  >
+                    <Edit2 className="w-4 h-4" />
+                    {t("edit")}
+                  </button>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => handleCancel('address')}
+                      className="px-4 py-2 flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    >
+                      <X className="w-4 h-4" /> {t("cancel")}
+                    </button>
+                    <button
+                      onClick={changeAddress}
+                      disabled={loading}
+                      className="px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                      {t("save")}
+                    </button>
+                  </div>
+                )}
+
             </div>
 
             {/* ACCOUNT DETAILS CARD */}

@@ -17,7 +17,7 @@ const SupportBtn = () => {
   return (
     <>
       {/* Floating Buttons */}
-      <div className="fixed bottom-20 right-2 flex flex-col items-end space-y-3 z-[9999]">
+      <div className="fixed bottom-6 right-6 flex flex-col items-end space-y-3 z-[9999]">
         {/* Secondary buttons */}
         {open && (
           <>
