@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import API from '../../context/apiProduct';
-// import { ApiContext } from '../../Contexts';
 import ProductImages from '../../components/Product/ProductImages'
 import SpinnerLoad from '../../components/SpinnerLoad';
 import { useAuth } from '../../context/AuthProvider';
@@ -25,7 +24,6 @@ const SingleProduct = () => {
   const { lang } = useLanguage();
   
   const { user, setUser } = useAuth();
-  // const { handleAddCart } = useContext(ApiContext);
   
   const navigate = useNavigate();
   const params = useParams();
@@ -180,38 +178,38 @@ const SingleProduct = () => {
   }, [product]);
 
   const handleToggleWishlist = async () => {
-  if (!user) {
-    toast.info("Please sign in to manage wishlist");
-    return;
-  }
+      if (!user) {
+        toast.info("Please sign in to manage wishlist");
+        return;
+      }
 
-  try {
-    if (user.wishList?.includes(product?._id)) {
-      // REMOVE
-      const response = await UserApi.delete(`/me/wishlist/remove/${product?._id}`, { withCredentials: true });
-      if (response.data.success) {
-        setUser(prev => ({
-          ...prev,
-          wishList: prev.wishList.filter(id => id !== product?._id)
-        }));
-        toast.success("Removed from wishlist");
+      try {
+        if (user.wishList?.includes(product?._id)) {
+          // REMOVE
+          const response = await UserApi.delete(`/me/wishlist/remove/${product?._id}`, { withCredentials: true });
+          if (response.data.success) {
+            setUser(prev => ({
+              ...prev,
+              wishList: prev.wishList.filter(id => id !== product?._id)
+            }));
+            toast.success("Removed from wishlist");
+          }
+        } else {
+          // ADD
+          const response = await UserApi.post(`/me/wishlist/add/${product?._id}`, { withCredentials: true });
+          if (response.data.success) {
+            setUser(prev => ({
+              ...prev,
+              wishList: [...prev.wishList, product?._id]
+            }));
+            toast.success("Added to wishlist");
+          }
+        }
+      } catch (err) {
+        toast.error("Failed to update wishlist");
+        console.error(err);
       }
-    } else {
-      // ADD
-      const response = await UserApi.post(`/me/wishlist/add/${product?._id}`, { withCredentials: true });
-      if (response.data.success) {
-        setUser(prev => ({
-          ...prev,
-          wishList: [...prev.wishList, product?._id]
-        }));
-        toast.success("Added to wishlist");
-      }
-    }
-  } catch (err) {
-    toast.error("Failed to update wishlist");
-    console.error(err);
-  }
-};
+  };
   //   HANDLE LIKE API
   const handleLikeProduct = async (productId) => {
     
@@ -227,14 +225,6 @@ const SingleProduct = () => {
       console.log(error?.response?.data);
       toast.error(error?.response?.data?.message || error.message);
     }
-  }
-
-  // HANDLE SHARE LINK
-  const share = async () => {
-    
-    window.location.pathname
-    console.log(window.location.pathname);
-    
   }
 
   const RatingStars = ({ rating, size = 5, className = "" }) => {
@@ -591,64 +581,64 @@ const SingleProduct = () => {
                 </button>
 
           </div>
+
         </div>
 
       </div>
 
       <div className='w-full max-w-7xl flex flex-col gap-4 mx-auto'>
         
-          <div className="my-12 px-4">
-            <h2 className="text-xl font-semibold mb-6">{t("youMayAlsoLike")}</h2>
-            <Swiper
-              modules={[Navigation, Pagination]}
-              navigation
-              pagination={{ clickable: true }}
-              slidesPerView={1} // default for small screens
-              spaceBetween={16} // default spacing
-              breakpoints={{
-              // 640: { slidesPerView: 2, spaceBetween: 20 },  // >=640px: 2 cards
-              768: { slidesPerView: 2, spaceBetween: 24 },  // >=768px: 3 cards
-              1024: { slidesPerView: 3, spaceBetween: 24 },  // >=768px: 3 cards
-              1200: { slidesPerView: 4, spaceBetween: 24 }, // >=1024px: 4 cards
-              }}
-              className="!pb-12"
-            >
-              {suggestion.map((product) => (
-                <SwiperSlide key={product?._id}>
-                  <div className="flex justify-center">
-                    <CardProduct
-                      product={product}
-                      user={user}
-                      addToWishList={addToWishList}
-                      removeFromWishList={removeFromWishList}
-                      handleToggleWishlist={handleToggleWishlist}
-                      className="max-w-[280px] w-full"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+        <div className="my-12 px-4">
+          <h2 className="text-xl font-semibold mb-6">{t("youMayAlsoLike")}</h2>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+            slidesPerView={1}
+            spaceBetween={16}
+            breakpoints={{
+            768: { slidesPerView: 2, spaceBetween: 24 }, 
+            1024: { slidesPerView: 3, spaceBetween: 24 },
+            1200: { slidesPerView: 4, spaceBetween: 24 },
+            }}
+            className="!pb-12"
+          >
+            {suggestion.map((product) => (
+              <SwiperSlide key={product?._id}>
+                <div className="flex justify-center">
+                  <CardProduct
+                    product={product}
+                    user={user}
+                    addToWishList={addToWishList}
+                    removeFromWishList={removeFromWishList}
+                    handleToggleWishlist={handleToggleWishlist}
+                    className="max-w-[280px] w-full"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
-            <ProductReviews
-              product={product}
-              initialReviews={product?.reviews || []} 
-              isAuthenticated={!!user}
-              user={user}
+        <div className='p-2'>
+          <ProductReviews
+            product={product}
+            initialReviews={product?.reviews || []} 
+            isAuthenticated={!!user}
+            user={user}
+          />
+        </div>
+        
+        <ReportModal
+          open={showReportModal}
+          onClose={() => setShowReportModal(false)}
+          type="product"
+          targetId={product?._id}
+          context={{
+            productName: product?.name,
+          }}
         />
         
-
-        <ReportModal
-        open={showReportModal}
-        onClose={() => setShowReportModal(false)}
-        type="product"
-        targetId={product?._id}
-        context={{
-          productName: product?.name,
-        }}
-      />
-        
-
       </div>
 
     </div>
