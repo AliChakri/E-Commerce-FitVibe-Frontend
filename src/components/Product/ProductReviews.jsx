@@ -44,34 +44,34 @@ const ProductReviews = ({
   const [averageRating, setAverageRating] = useState(product?.averageRating || 0);
   const [reviewsCount, setReviewsCount] = useState(product?.reviewsCount || 0);
 
-useEffect(() => {
-  const fetchReviews = async () => {
-      
-    try {
-      const res = await API.get(`/${product._id}/reviews`, { withCredentials: true });
-      if (res.data.success) {
-        setReviews(res.data.reviews);
-        setAverageRating(res.data.averageRating);
-        setReviewsCount(res.data.reviewsCount);
+  useEffect(() => {
+    const fetchReviews = async () => {
+        
+      try {
+        const res = await API.get(`/${product._id}/reviews`, { withCredentials: true });
+        if (res.data.success) {
+          setReviews(res.data.reviews);
+          setAverageRating(res.data.averageRating);
+          setReviewsCount(res.data.reviewsCount);
+        }
+      } catch (error) {
+        toast.error(error?.response?.data?.message)
+        console.log(error?.response?.data || error.message);
       }
-    } catch (error) {
-      toast.error(error?.response?.data?.message)
-      console.log(error?.response?.data || error.message);
-    }
-  };
-  fetchReviews();
-}, []);
+    };
+    fetchReviews();
+  }, []);
 
   // Derived
   const total = reviews.length;
 
   useEffect(() => {
     if (total > 0) {
-            const sum = reviews.reduce((acc, r) => acc + (r.rating || 0), 0);
+      const sum = reviews.reduce((acc, r) => acc + (r.rating || 0), 0);
       let averageRate = Math.round((sum / total) * 10) / 10; // 1 decimal
-    let reviewsTotal = total;
-    setAverageRating(averageRate);
-    setReviewsCount(reviewsTotal);
+      let reviewsTotal = total;
+      setAverageRating(averageRate);
+      setReviewsCount(reviewsTotal);
     } else {
       setAverageRating(0);
       setReviewsCount(0);
@@ -170,7 +170,7 @@ useEffect(() => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="text-sm rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2"
+              className="text-sm rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-3 py-2"
             >
               <option value="recent">{t("mostRecent")}</option>
               <option value="highest">{t("highestRated")}</option>
