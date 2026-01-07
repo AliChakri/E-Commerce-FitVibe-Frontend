@@ -202,11 +202,11 @@ const Collection = () => {
 
   return (
 
-<section className="min-h-screen w-full bg-white dark:bg-gray-900 mx-auto p-20 mt-[8vh] overflow-hidden">
+<section className="min-h-screen w-full flex flex-col gap-8 bg-white dark:bg-gray-900 mx-auto p-20 mt-[8vh] overflow-hidden">
 
   {/* title section + Clear Button */}
-  <div className="flex items-center justify-between mb-6">
-    <h2 className="text-4xl font-bold text-blue-600 dark:text-blue-400">{t("allProducts")}</h2>
+  <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 md:gap-0 mb-6">
+    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-600 dark:text-blue-400">{t("allProducts")}</h2>
 
     <div className="flex items-center gap-3">
       <button
