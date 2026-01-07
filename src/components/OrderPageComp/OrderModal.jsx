@@ -197,6 +197,7 @@ const OrderModal = ({ order, onClose }) => {
 
           {/* Order Items Section */}
           <div className="bg-white dark:bg-gray-700 rounded-xl border border-slate-200 dark:border-gray-600 overflow-hidden">
+
             <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-gray-600 dark:to-gray-500 px-6 py-4 border-b border-slate-200 dark:border-gray-600">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -214,7 +215,7 @@ const OrderModal = ({ order, onClose }) => {
             <div className="divide-y divide-slate-200 dark:divide-gray-600">
               {order.orderItems.map((item, idx) => (
                 <div key={idx} className="p-6 hover:bg-slate-50 dark:hover:bg-gray-600/50 transition-colors duration-200">
-                  <div className="flex items-center gap-4">
+                  <div className="flex flex-col md:flex-row items-center gap-4">
                     
                     {/* Product Image */}
                     <div className="flex-shrink-0">
@@ -226,7 +227,7 @@ const OrderModal = ({ order, onClose }) => {
                     </div>
 
                     {/* Product Details */}
-                    <div className="flex-1 min-w-0">
+                    <div className="flex-1 flex-col md:flex-row min-w-0">
                       <h4 className="text-lg font-semibold text-slate-900 dark:text-white truncate">
                         {item.product?.name?.[lang] || 'Product Name Not Available'}
                       </h4>
@@ -274,6 +275,7 @@ const OrderModal = ({ order, onClose }) => {
                 </span>
               </div>
             </div>
+
           </div>
         </div>
       </div>
