@@ -182,7 +182,7 @@ const AllUsers = () => {
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{t("usersManagement")} </h1>
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="hidden md:inline text-slate-600 dark:text-slate-400">
                   {totalUsers || 0} {t("totalUsersRegistered")}
                 </p>
               </div>

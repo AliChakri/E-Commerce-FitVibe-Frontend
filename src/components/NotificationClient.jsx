@@ -250,7 +250,7 @@ const NotificationClient = ({ userId }) => {
         
         {/* Unread badge */}
         {unreadCount > 0 && (
-          <span className="absolute -top-0.5  ltr:-right-0.5 rtl:-left-0.5 flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-500 rounded-full animate-pulse">
+          <span className="absolute -top-0.5  ltr:-right-0.5 rtl:-left-4 flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-500 rounded-full animate-pulse">
             {unreadCount > 99 ? '99+' : unreadCount}
           </span>
         )}

@@ -66,7 +66,7 @@ const Dashbord = () => {
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
                 {t('dashboardManagement')}
               </h1>
-              <p className="text-gray-600 dark:text-gray-400 mt-1">
+              <p className="hidden md:inline text-gray-600 dark:text-gray-400 mt-1">
                 {t('dashboardSubtitle')}
               </p>
             </div>

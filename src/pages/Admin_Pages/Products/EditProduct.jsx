@@ -214,7 +214,7 @@ const EditProduct = () => {
         <Package className="w-8 h-8 text-blue-600" />
         <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{t("editProduct")}</h1>
       </div>
-      <p className="text-gray-600 dark:text-gray-300 mt-2">{t("updateProductInfo")}</p>
+      <p className="hidden md:inline text-gray-600 dark:text-gray-300 mt-2">{t("updateProductInfo")}</p>
     </div>
 
     <div className="space-y-8">
