@@ -17,17 +17,6 @@ import { useLanguage } from "../../context/LanguageContext";
 import API from "../../context/apiProduct";
 import { useTranslation } from "react-i18next";
 
-/**
- * Enhanced Report Modal with dynamic type handling
- * @param {Object} props
- * @param {boolean} props.open - Modal visibility state
- * @param {Function} props.onClose - Close handler
- * @param {string} props.type - Report type: 'system', 'product', 'review', 'reply', 'order'
- * @param {string} props.targetId - Optional target ID for specific reports
- * @param {Object} props.product - Optional product object for context
- * @param {Function} props.setReviews - Optional callback to refresh reviews
- * @param {Object} props.context - Additional context data (e.g., order number, review text)
- */
 const ReportModal = ({ 
   open, 
   onClose, 
@@ -275,9 +264,9 @@ const ReportModal = ({
   }
 
     const toCamelCase = (str) =>
-  str
-    .toLowerCase()
-    .replace(/[^a-zA-Z0-9]+(.)/g, (_match, chr) => chr.toUpperCase());
+      str
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]+(.)/g, (_match, chr) => chr.toUpperCase());
 
   // ========== MAIN MODAL ==========
   return (
@@ -365,7 +354,7 @@ const ReportModal = ({
 
           {/* Step 2: Details & Severity */}
           {step === 2 && (
-            <div className="space-y-5 animate-fadeIn">
+            <div className=" space-y-5 animate-fadeIn overflow-y-auto">
               {/* Selected Reason Display */}
               <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-2">
@@ -412,7 +401,7 @@ const ReportModal = ({
                   <AlertTriangle className="w-4 h-4" />
                   {t("howUrgentIsThis")}
                 </label>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {["low", "medium", "high", "critical"].map((level) => {
                     const severityColors = {
                       low: "border-green-300 bg-green-50 text-green-700 dark:border-green-700 dark:bg-green-900/40 dark:text-green-300",
