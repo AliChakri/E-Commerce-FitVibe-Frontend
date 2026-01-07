@@ -139,7 +139,7 @@ const AddReviewModal = ({ product, open, onClose, setReviews }) => {
                 </button>
               ))}
             </div>
-            <p className="text-xs text-gray-500 mt-1">{t("clickToRate")}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{t("clickToRate")}</p>
           </div>
 
           {/* Title & comment */}
@@ -147,7 +147,7 @@ const AddReviewModal = ({ product, open, onClose, setReviews }) => {
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-300 placeholder:text-gray-800 placeholder:dark:text-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500"
               placeholder={t("reviewTitle")}
               maxLength={100}
             />
@@ -155,7 +155,7 @@ const AddReviewModal = ({ product, open, onClose, setReviews }) => {
               value={text}
               onChange={(e) => setText(e.target.value)}
               rows={4}
-              className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-300 placeholder:text-gray-800 placeholder:dark:text-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500"
               placeholder={t("reviewPlaceholder")}
               maxLength={2000}
             />
@@ -170,7 +170,7 @@ const AddReviewModal = ({ product, open, onClose, setReviews }) => {
                   : "border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer"}`}
             >
               <Camera className="w-4 h-4" />
-              <span className="text-sm">
+              <span className="text-sm text-gray-800 dark:text-gray-300">
                 {files.length >= 3 ? t("maxPhotos") : t("addPhotosOptional")}
               </span>
               <input
@@ -178,7 +178,7 @@ const AddReviewModal = ({ product, open, onClose, setReviews }) => {
                 accept="image/*"
                 multiple
                 hidden
-                disabled={files.length >= 3} // 🔥 disable input
+                disabled={files.length >= 3} 
                 onChange={handleFileChange}
               />
             </label>
@@ -195,7 +195,7 @@ const AddReviewModal = ({ product, open, onClose, setReviews }) => {
                     <button
                       type="button"
                       onClick={() => setFiles((prev) => prev.filter((_, i) => i !== index))}
-                      className="absolute top-1 right-1 bg-black/50 text-white rounded-full p-0.5 hover:bg-red-600 cursor-pointer"
+                      className="absolute top-1 right-1 bg-black/50 dark:bg-gray-300 text-white dark:text-gray-800 rounded-full p-0.5 hover:bg-red-600 cursor-pointer"
                     >
                       <X className="w-5 h-5" />
                     </button>
