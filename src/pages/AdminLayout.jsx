@@ -109,6 +109,7 @@ const AdminLayout = () => {
         {/* Navigation - Scrollable */}
         <nav className="flex-1 overflow-y-auto px-3 py-4">
           <ul className="space-y-1">
+
             <li>
               <NavLink
                 to="/admin/dashboard/main"
@@ -220,6 +221,7 @@ const AdminLayout = () => {
                 {!isCollapsed && <span>{t('reports')}</span>}
               </NavLink>
             </li>
+
           </ul>
         </nav>
 
@@ -235,6 +237,7 @@ const AdminLayout = () => {
             {!isCollapsed && <span>{t('logout')}</span>}
           </NavLink>
         </div>
+
       </aside>
 
       {/* Main Content Area */}
@@ -254,7 +257,7 @@ const AdminLayout = () => {
               </button>
 
               {/* Search Bar */}
-              <div className="relative search-menu hidden sm:block flex-1 max-w-md">
+              {/* <div className="relative search-menu hidden sm:block flex-1 max-w-md">
                 <button
                   onClick={() => setShowSearch(!showSearch)}
                   className="w-full flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-xl px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
@@ -276,18 +279,19 @@ const AdminLayout = () => {
                     </div>
                   </div>
                 )}
-              </div>
+              </div> */}
+
             </div>
 
             {/* Right: Actions */}
             <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
               
               {/* Search Icon for Mobile */}
-              <button 
+              {/* <button 
                 onClick={() => setShowSearch(!showSearch)}
                 className="sm:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-colors">
                 <Search size={20} />
-              </button>
+              </button> */}
 
               <ThemeToggle />
               <LanguageSwitcher />
