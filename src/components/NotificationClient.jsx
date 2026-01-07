@@ -250,19 +250,11 @@ const NotificationClient = ({ userId }) => {
         
         {/* Unread badge */}
         {unreadCount > 0 && (
-          <span className="absolute -top-0.5  ltr:-right-0.5 rtl:-left-4 flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-500 rounded-full animate-pulse">
+          <span className="absolute -top-0.5  ltr:-right-0.5 rtl:-left-2 flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-500 rounded-full animate-pulse">
             {unreadCount > 99 ? '99+' : unreadCount}
           </span>
         )}
         
-        {/* Connection status indicator */}
-        {/* <div className="absolute -bottom-1 ltr:-right-1 rtl:-left-1 ">
-          {isConnected ? (
-            <Wifi className="w-3 h-3 text-green-500" />
-          ) : (
-            <WifiOff className="w-3 h-3 text-red-500" />
-          )}
-        </div> */}
       </button>
 
       {/* Dropdown */}
