@@ -146,6 +146,7 @@ const UserModal = ({ user, isOpen, onClose }) => {
           
           {/* Header */}
           <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 px-8 py-6">
+
             <div className="absolute inset-0 bg-black/10"></div>
             <button
               onClick={onClose}
@@ -154,7 +155,7 @@ const UserModal = ({ user, isOpen, onClose }) => {
               <X className="w-6 h-6" />
             </button>
             
-            <div className="relative flex items-start gap-6">
+            <div className="relative flex flex-col md:flex-row items-start gap-6">
               {/* Avatar */}
               <div className="relative">
                 {user.avatar ? (
@@ -176,7 +177,8 @@ const UserModal = ({ user, isOpen, onClose }) => {
               </div>
 
               {/* User Info */}
-              <div className="flex-1 text-white">
+              <div className="flex-1 flex-col md:flex-row text-white">
+
                 <div className="flex items-center gap-3 mb-2">
                   <h2 className="text-3xl font-bold">{user?.firstName + ' ' + user?.lastName}</h2>
                   {user.role === 'admin' && (
