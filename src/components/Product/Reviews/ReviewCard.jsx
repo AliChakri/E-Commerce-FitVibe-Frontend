@@ -58,7 +58,7 @@ const ReviewCard = ({ product, review, user, setReviews }) => {
         {avatar ? (
           <img
             src={avatar}
-            className={`${size} p-0.5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 text-white grid place-items-center font-semibold shadow-md`}
+            className={`${size} p-0.5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 text-white grid place-items-center font-semibold shadow-md object-cover`}
             alt=""
           />
         ) : (
@@ -98,50 +98,60 @@ const ReviewCard = ({ product, review, user, setReviews }) => {
   };
 
   return (
-    <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm">
+    <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 sm:p-5 shadow-sm">
 
-      <div className="flex items-start gap-4">
+      <div className="flex items-start gap-2 sm:gap-4">
 
-        <Avatar avatar={review?.user?.avatar} name={(review.user?.firstName + ' ' + review.user?.lastName) || t("user")} size="w-12 h-12" />
+        {/* Avatar - smaller on mobile */}
+        <div className="flex-shrink-0">
+          <Avatar 
+            avatar={review?.user?.avatar} 
+            name={(review.user?.firstName + ' ' + review.user?.lastName) || t("user")} 
+            size="w-10 h-10 sm:w-12 sm:h-12" 
+          />
+        </div>
 
         {/* HEADER */}
-        <div className="flex-1">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="font-semibold text-gray-900 dark:text-white">
+        <div className="flex-1 min-w-0">
+
+          {/* NAME + VERIFIED PURCHASE + DATE CREATED */}
+          <div className="flex flex-wrap items-center gap-1 sm:gap-2">
+            <span className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white truncate">
               {(review?.user?.firstName + ' ' + review?.user?.lastName) || t("anonymous")}
             </span>
             {review.verified && (
-              <span className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">
-                <BadgeCheck className="w-3.5 h-3.5" />
+              <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 whitespace-nowrap">
+                <BadgeCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 {t("verifiedPurchase")}
               </span>
             )}
-            <span className="text-xs text-gray-500 dark:text-gray-400">
+            <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
               {new Date(review?.createdAt).toLocaleDateString()}
             </span>
           </div>
 
-          <div className="mt-1 flex items-center gap-2">
+          
+          <div className="mt-1 flex items-center gap-2 flex-wrap">
             <RatingStars rating={review?.rating} />
-            <span className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+            <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium break-words">
               {review?.title}
             </span>
           </div>
 
           {review?.comment && (
-            <p className="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed break-words">
               {review?.comment}
             </p>
           )}
 
           {Array.isArray(review?.images) && review?.images.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="mt-2 sm:mt-3 flex flex-wrap gap-1.5 sm:gap-2">
               {review?.images?.map((src, idx) => (
                 <img
                   key={idx}
                   src={src}
                   alt="review"
-                  className="w-20 h-20 rounded-lg object-cover border border-gray-200 dark:border-gray-700 cursor-pointer hover:opacity-80 transition-opacity"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover border border-gray-200 dark:border-gray-700 cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={() => {
                     setSelectedImage(src);
                     openLightbox();
@@ -151,91 +161,107 @@ const ReviewCard = ({ product, review, user, setReviews }) => {
             </div>
           )}
 
-          {/* Action Buttons */}
-          <div className="mt-4 flex items-center gap-4 text-sm">
+          {/* Action Buttons - Responsive */}
+          <div className="mt-3 sm:mt-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm">
             {(review?.user?._id?.toString() === user?._id?.toString()) ? (
               <>
                 <button
                   onClick={() => setOpenEditModal(prev => !prev)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 transition cursor-pointer hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 transition cursor-pointer hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400"
                 >
-                  <Edit3 className="w-4 h-4" />
-                  {t("edit")}
+                  <Edit3 className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="hidden xs:inline">{t("edit")}</span>
                 </button>
-                <button className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 transition">
+                
+                <button className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 transition">
                   <span className="text-blue-500">{likes}</span>
-                  <Heart className="w-4 h-4" />
-                  {likes === 1 ? t("like") : t("likes")}
+                  <Heart className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="hidden xs:inline">{likes === 1 ? t("like") : t("likes")}</span>
                 </button>
               </>
             ) : (
               <button
                 onClick={() => handleLikeReview()}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition cursor-pointer border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-blue-400"
+                className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border transition cursor-pointer border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-blue-400"
               >
                 <span className="text-blue-600">{likes ? likes : ''}</span>
-                <ThumbsUp className="w-4 h-4" />
-                {t("helpful")}
+                <ThumbsUp className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden xs:inline">{t("helpful")}</span>
               </button>
             )}
 
             {/* Reply Button */}
             <button
               onClick={() => setShowReplyForm(prev => !prev)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-green-400 transition cursor-pointer"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-green-400 transition cursor-pointer"
             >
-              <Reply className="w-4 h-4" />
-              {t("reply")}
+              <Reply className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="hidden xs:inline">{t("reply")}</span>
             </button>
 
             {(review?.user?._id?.toString() === user?._id?.toString() || user?.role === 'admin') ? (
               <button
                 onClick={() => handleDeleteReview()}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-red-400 transition cursor-pointer"
+                className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-red-400 transition cursor-pointer"
               >
-                <Trash2 className="w-4 h-4" />
-                {t("delete")}
+                <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden xs:inline">{t("delete")}</span>
               </button>
             ) : (
               <button
-                  // onClick={() => setOpenReportModal(p => !p)}
-                  onClick={() => setShowReportModal(true)}
+                onClick={() => setShowReportModal(true)}
                 disabled={alreadyReported ? true : false}
-                className={`${alreadyReported ? 'border-red-300 dark:border-red-600 text-red-600 dark:text-red-300' : 'border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300'} inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border hover:border-red-400 transition cursor-pointer`}
+                className={`${alreadyReported ? 'border-red-300 dark:border-red-600 text-red-600 dark:text-red-300' : 'border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300'} inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border hover:border-red-400 transition cursor-pointer`}
               >
-                <Flag className="w-4 h-4" />
-                {t("report")}
+                <Flag className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden xs:inline">{t("report")}</span>
               </button>
             )}
           </div>
 
           {/* Reply Form */}
           {showReplyForm && user && (
-            <ReplyForm product={product} review={review} user={user} setReplies={setReplies} setShowReplyForm={setShowReplyForm} />
+            <div className="mt-3 sm:mt-4">
+              <ReplyForm 
+                product={product} 
+                review={review} 
+                user={user} 
+                setReplies={setReplies} 
+                setShowReplyForm={setShowReplyForm} 
+              />
+            </div>
           )}
 
           {/* Replies Section */}
           {replies.length > 0 && (
-            <div className="mt-4">
+            <div className="mt-3 sm:mt-4">
               <button
                 onClick={() => setShowReplies(prev => !prev)}
-                className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 mb-3"
+                className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 mb-2 sm:mb-3"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 {showReplies ? t("hide") : t("show")} {replies.length} {replies.length === 1 ? t("reply") : t("replies")}
-                {showReplies ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                {showReplies ? <ChevronUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
               </button>
 
               {showReplies && (
-                <div className="space-y-3 border-l-2 border-blue-200 dark:border-blue-700 pl-4 ml-2">
+                <div className="space-y-2 sm:space-y-3 border-l-2 border-blue-200 dark:border-blue-700 pl-2 sm:pl-4 ml-1 sm:ml-2">
                   {replies?.map((reply, index) => (
-                    <ReplyComponent key={reply?._id || index} reply={reply} product={product} review={review} setReplies={setReplies} user={user} />
+                    <ReplyComponent 
+                      key={reply?._id || index} 
+                      reply={reply} 
+                      product={product} 
+                      review={review} 
+                      setReplies={setReplies} 
+                      user={user} 
+                    />
                   ))}
                 </div>
               )}
             </div>
           )}
         </div>
+
       </div>
 
       <EditReviewModal 
@@ -261,19 +287,19 @@ const ReviewCard = ({ product, review, user, setReviews }) => {
 
       {imageOn && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex justify-center items-center p-4"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex justify-center items-center p-2 sm:p-4"
           onClick={closeLightbox}
         >
           <img
             src={selectedImage}
             alt="Full"
-            className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
+            className="max-w-full max-h-full object-contain rounded-lg sm:rounded-xl shadow-2xl"
           />
           <button
             onClick={() => setImageOn(false)}
-            className="absolute top-6 right-6 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 text-white transition-all duration-200 hover:scale-110"
+            className="absolute top-3 right-3 sm:top-6 sm:right-6 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 sm:p-3 text-white transition-all duration-200 hover:scale-110"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
       )}

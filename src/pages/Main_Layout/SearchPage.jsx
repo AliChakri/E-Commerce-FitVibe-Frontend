@@ -101,9 +101,9 @@ const SearchPage = () => {
   if (loading) return <SpinnerLoad label="product" />;
 
   return (
-    <section className="min-h-screen w-full bg-white dark:bg-gray-900 mx-auto p-20 mt-[8vh] overflow-hidden">
+    <section className="min-h-screen w-full flex flex-col gap-8 bg-white dark:bg-gray-900 mx-auto mt-[8vh] overflow-hidden">
       {/* Title */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mt-6 mb-2 p-4">
         <h2 className="text-4xl font-bold text-blue-600 dark:text-blue-400">
           {t("searchResults")}
         </h2>

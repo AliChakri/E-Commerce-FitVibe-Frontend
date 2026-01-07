@@ -205,7 +205,7 @@ const Collection = () => {
 <section className="min-h-screen w-full flex flex-col gap-8 bg-white dark:bg-gray-900 mx-auto mt-[8vh] overflow-hidden">
 
   {/* title section + Clear Button */}
-  <div className="flex items-center justify-between my-6 p-4">
+  <div className="flex items-center justify-between mt-6 mb-2 p-4">
     <h2 className="text-3xl lg:text-4xl font-bold text-blue-600 dark:text-blue-400">{t("allProducts")}</h2>
 
     <div className="hidden md:flex items-center gap-3">
