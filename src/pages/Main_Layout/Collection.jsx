@@ -202,7 +202,7 @@ const Collection = () => {
 
   return (
 
-<section className="min-h-screen w-full flex flex-col gap-8 bg-white dark:bg-gray-900 mx-auto p-20 mt-[8vh] overflow-hidden">
+<section className="min-h-screen w-full flex flex-col gap-8 bg-white dark:bg-gray-900 mx-auto mt-[8vh] overflow-hidden">
 
   {/* title section + Clear Button */}
   <div className="flex items-center justify-between mb-6">
