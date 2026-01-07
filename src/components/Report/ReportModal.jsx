@@ -354,7 +354,7 @@ const ReportModal = ({
 
           {/* Step 2: Details & Severity */}
           {step === 2 && (
-            <div className=" space-y-5 animate-fadeIn overflow-y-auto">
+            <div className="space-y-5 animate-fadeIn max-h-[60vh] sm:max-h-[70vh] overflow-y-auto pr-2">
               {/* Selected Reason Display */}
               <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-2">
@@ -380,9 +380,9 @@ const ReportModal = ({
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  rows={5}
+                  rows={4}
                   maxLength={500}
-                  className="w-full rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-900 dark:text-white outline-none focus:border-gray-400 dark:focus:border-gray-500 resize-none transition"
+                  className="w-full rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-sm text-gray-900 dark:text-white outline-none focus:border-gray-400 dark:focus:border-gray-500 resize-none transition"
                   placeholder={t("reportPlaceholder")}
                 />
                 <div className="flex justify-between items-center mt-2">
@@ -428,19 +428,19 @@ const ReportModal = ({
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+              {/* Action Buttons - Sticky at bottom */}
+              <div className="flex gap-3 pt-4 border-t border-gray-200 dark:border-gray-700 sticky bottom-0 bg-white dark:bg-gray-900 -mx-2 px-2 pb-2">
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+                  className="px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
                 >
                   {t("back")}
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-200 ${
+                  className={`flex-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-sm font-semibold text-white transition-all duration-200 ${
                     loading
                       ? "bg-gray-400 cursor-not-allowed"
                       : `${buttonColorClasses[config.color]} shadow-lg hover:shadow-xl`
@@ -448,12 +448,12 @@ const ReportModal = ({
                 >
                   {loading ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      {t("submitting")}
+                      <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
+                      <span className="hidden xs:inline">{t("submitting")}</span>
                     </>
                   ) : (
                     <>
-                      <Send className="w-5 h-5" />
+                      <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                       {t("submitReport")}
                     </>
                   )}
