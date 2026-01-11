@@ -208,7 +208,7 @@ const Collection = () => {
       <div className="flex items-center justify-center mt-6 mb-2 p-4">
         <h2 className="text-3xl lg:text-4xl font-bold text-blue-600 dark:text-blue-400">{t("allProducts")}</h2>
 
-        <div className="hidden md:flex items-center gap-3">
+        {/* <div className="hidden md:flex items-center gap-3">
           <button
             onClick={clearAll}
             className="flex items-center gap-2 px-3 py-2 rounded-full border border-blue-200 dark:border-blue-700 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition"
@@ -216,7 +216,7 @@ const Collection = () => {
           >
             <RefreshCw size={16} /> {t("clearAll")}
           </button>
-        </div>
+        </div> */}
       </div>
 
   {/* MAIN CONTENT */}
