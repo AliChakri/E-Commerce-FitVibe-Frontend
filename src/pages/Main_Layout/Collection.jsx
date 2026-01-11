@@ -220,7 +220,7 @@ const Collection = () => {
       </div>
 
   {/* MAIN CONTENT */}
-  <div className="flex flex-col lg:flex-row gap-6 p-4 lg:p-0 mx-auto w-full">
+  <div className="flex flex-col lg:flex-row gap-6 p-4 lg:p-8 mx-auto w-full">
       
         
     {/* --- FILTER SIDEBAR --- */}
