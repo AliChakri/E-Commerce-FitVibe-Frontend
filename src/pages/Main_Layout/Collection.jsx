@@ -204,24 +204,26 @@ const Collection = () => {
 
 <section className="min-h-screen w-full flex flex-col gap-8 bg-white dark:bg-gray-900 mx-auto mt-[8vh] overflow-hidden">
 
-  {/* title section + Clear Button */}
-  <div className="flex items-center justify-center mt-6 mb-2 p-4">
-    <h2 className="text-3xl lg:text-4xl font-bold text-blue-600 dark:text-blue-400">{t("allProducts")}</h2>
-
-    <div className="hidden md:flex items-center gap-3">
-      <button
-        onClick={clearAll}
-        className="flex items-center gap-2 px-3 py-2 rounded-full border border-blue-200 dark:border-blue-700 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition"
-        title="Clear all filters"
-      >
-        <RefreshCw size={16} /> {t("clearAll")}
-      </button>
-    </div>
-  </div>
+  
 
   {/* MAIN CONTENT */}
-  <div className="flex flex-col lg:flex-row gap-6 p-4 lg:p-0 max-w-7xl mx-auto w-full">
+  <div className="flex flex-col lg:flex-row gap-6 p-4 lg:p-0 mx-auto w-full">
 
+      {/* title section + Clear Button */}
+      <div className="flex items-center justify-center mt-6 mb-2 p-4">
+        <h2 className="text-3xl lg:text-4xl font-bold text-blue-600 dark:text-blue-400">{t("allProducts")}</h2>
+
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={clearAll}
+            className="flex items-center gap-2 px-3 py-2 rounded-full border border-blue-200 dark:border-blue-700 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition"
+            title="Clear all filters"
+          >
+            <RefreshCw size={16} /> {t("clearAll")}
+          </button>
+        </div>
+      </div>
+        
     {/* --- FILTER SIDEBAR --- */}
     <aside className="lg:block w-full lg:w-[250px] 2xl:w-72 sticky top-20 self-start">
       <div className="bg-white dark:bg-gray-900 p-5 rounded-2xl shadow-md border border-slate-100 dark:border-gray-700">
